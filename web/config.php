@@ -9,7 +9,7 @@ $url = parse_url(getenv("DATABASE_URL"));
 $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
-$db = substr($url["path"], 1);
+$dbname = substr($url["path"], 1);
 
 echo "Extracted Info $servername $username $password $dbnane<br>";
 ?>
