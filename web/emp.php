@@ -101,7 +101,7 @@ if (!$conn) {
       </div>
     </nav>
     <div class="row content">
-      <div class="col-sm-3 sidenav">
+      <div class="col-sm-2 sidenav">
         <h3>Employee Sample App</h3>
         <ul class="nav nav-pills nav-stacked">
           <li><a href="/emp.php">View All Employees(emp.php)</a></li>
@@ -110,7 +110,7 @@ if (!$conn) {
         </ul><br>
       </div>
 
-      <div class="col-sm-9">
+      <div class="col-sm-10">
         <h1>Employees</h1>
         <?php
 
