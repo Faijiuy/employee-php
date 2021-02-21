@@ -27,16 +27,15 @@ if (!$conn) {
     .sidenav {
       background-color: #f1f1f1;
       height: 130%;
-      font-size: large;
+      font-size: medium;
     }
 
     nav {
-      font-size: large;
+      font-size: medium;
     }
 
     table {
       width: 90%;
-      background-color: #f1f1f1;
     }
 
     thead {
@@ -45,16 +44,17 @@ if (!$conn) {
 
     td {
       text-align: center;
-      font-size: large;
+      font-size: medium;
+      background-color: #f1f1f1;
     }
 
     #leftAlign {
-      font-size: large;
+      font-size: medium;
       text-align: left;
     }
 
     .btn-primary {
-      font-size: large;
+      font-size: medium;
     }
 
     /* Set black background color, white text and some padding */
@@ -70,7 +70,7 @@ if (!$conn) {
       .sidenav {
         height: auto;
         padding: 15px;
-        font-size: large;
+        font-size: medium;
       }
 
       .row.content {
