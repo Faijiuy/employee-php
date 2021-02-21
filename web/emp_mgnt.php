@@ -47,7 +47,6 @@ if (!$conn) {
         td {
             text-align: left;
             font-size: medium;
-            background-color: rgba(255, 255, 255);
         }
 
         #leftAlign {
@@ -82,7 +81,7 @@ if (!$conn) {
     </style>
 </head>
 
-<body style="background-color: #fddce0;">
+<body>
 
     <div class="container-fluid">
         <nav class="navbar navbar-inverse">
