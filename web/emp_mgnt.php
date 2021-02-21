@@ -86,7 +86,7 @@ if (!$conn) {
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/emp.php">Employee Sample App</a>
+                    <a class="navbar-brand" href="/emp_mgnt.php">Employee Sample App</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="/emp.php">View All Employees</a></li>
