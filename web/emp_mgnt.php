@@ -24,7 +24,7 @@ if (!$conn) {
 
         /* Set gray background color and 100% height */
         .sidenav {
-            background-color: #f1f1f1;
+            background-color: #fc5369;
             height: 150%;
             font-size: medium;
         }
@@ -36,7 +36,7 @@ if (!$conn) {
 
         nav {
             font-size: medium;
-            background: #fc5369;
+            /* background: #fc5369; */
         }
 
         thead {
@@ -47,7 +47,7 @@ if (!$conn) {
         td {
             text-align: left;
             font-size: medium;
-            background: #f1f1f1;
+            background: #ffffff;
         }
 
         #leftAlign {
