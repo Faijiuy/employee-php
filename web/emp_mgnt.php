@@ -24,7 +24,7 @@ if (!$conn) {
 
         /* Set gray background color and 100% height */
         .sidenav {
-            background-color: #fc5369;
+            background-color: rgba(255, 99, 71, 0.5);
             height: 150%;
             font-size: medium;
         }
@@ -47,7 +47,7 @@ if (!$conn) {
         td {
             text-align: left;
             font-size: medium;
-            background: #ffffff;
+            background-color: #ffffff;
         }
 
         #leftAlign {
