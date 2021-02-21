@@ -48,6 +48,10 @@ if (!$conn) {
       font-size: medium;
     }
 
+    h1 {
+      background-color: rgba(255, 99, 71, 0.5);
+    }
+
     #leftAlign {
       font-size: medium;
       text-align: left;
@@ -80,7 +84,7 @@ if (!$conn) {
   </style>
 </head>
 
-<body style="background-color: #fddce0;">
+<body>
 
   <div class="container-fluid">
     <nav class="navbar navbar-inverse">
@@ -117,7 +121,7 @@ if (!$conn) {
           // output data of each row
           $counter = 0;
           while ($row = mysqli_fetch_assoc($result)) {
-            echo "id: " . $row["emp_no"] . " - Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
+            echo "\t id: " . $row["emp_no"] . " - Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
             $counter++;
           }
           echo "$counter results";
@@ -137,7 +141,7 @@ if (!$conn) {
           // output data of each row
           $counter = 0;
           while ($row = mysqli_fetch_assoc($result)) {
-            echo "id: " . $row["dept_no"] . " - Name: " . $row["dept_name"] . "<br>";
+            echo "\t id: " . $row["dept_no"] . " - Name: " . $row["dept_name"] . "<br>";
             $counter++;
           }
           echo "$counter results";
