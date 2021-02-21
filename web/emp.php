@@ -50,6 +50,7 @@ if (!$conn) {
 
     h1 {
       background-color: rgba(255, 99, 71, 0.5);
+      width: 80%;
     }
 
     #leftAlign {
@@ -121,7 +122,7 @@ if (!$conn) {
           // output data of each row
           $counter = 0;
           while ($row = mysqli_fetch_assoc($result)) {
-            echo "\t id: " . $row["emp_no"] . " - Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
+            echo "    id: " . $row["emp_no"] . " - Name: " . $row["first_name"] . " " . $row["last_name"] . "<br>";
             $counter++;
           }
           echo "$counter results";
@@ -141,7 +142,7 @@ if (!$conn) {
           // output data of each row
           $counter = 0;
           while ($row = mysqli_fetch_assoc($result)) {
-            echo "\t id: " . $row["dept_no"] . " - Name: " . $row["dept_name"] . "<br>";
+            echo "    id: " . $row["dept_no"] . " - Name: " . $row["dept_name"] . "<br>";
             $counter++;
           }
           echo "$counter results";
