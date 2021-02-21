@@ -97,7 +97,7 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
     </style>
 </head>
 
-<body>
+<body style="background-color: #fddce0;">
 
     <div class="container-fluid">
         <nav class="navbar navbar-inverse">
