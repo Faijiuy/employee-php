@@ -35,7 +35,8 @@ if (!$conn) {
     }
 
     table {
-      width: 90%
+      width: 90%;
+      background-color: #f1f1f1;
     }
 
     thead {
