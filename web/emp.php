@@ -25,7 +25,7 @@ if (!$conn) {
 
     /* Set gray background color and 100% height */
     .sidenav {
-      background-color: #f1f1f1;
+      background-color: rgba(255, 99, 71, 0.5);
       height: 130%;
       font-size: medium;
     }

@@ -43,7 +43,7 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
 
         /* Set gray background color and 100% height */
         .sidenav {
-            background-color: #f1f1f1;
+            background-color: rgba(255, 99, 71, 0.5);
             height: 130%;
             font-size: medium;
         }
@@ -124,7 +124,7 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
             </div>
 
             <div class="col-sm-9">
-                <h1>Insert New Employee</h1><br />
+                <h1 style="background-color: rgba(255, 99, 71, 0.5);">Insert New Employee</h1><br />
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                     <input type="hidden" name="cmd" value="add" />
                     <table>
