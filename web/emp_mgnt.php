@@ -111,15 +111,37 @@ if (!$conn) {
                 // Delete employee
                 $emp_no = $_POST['emp_no'];
                 $sql = "DELETE FROM employees WHERE emp_no = $emp_no";
+                $sql2 = "DELETE FROM dept_emp WHERE emp_no = $emp_no";
+                $sql3 = "DELETE FROM titles WHERE emp_no = $emp_no";
+                $sql4 = "DELETE FROM salaries WHERE emp_no = $emp_no";
                 //$result = mysqli_query($conn, $sql);
 
                 //if ($conn->query($sql) === TRUE) {
 
                 if (mysqli_query($conn, $sql)) {
-                    echo "Record deleted successfully";
+                    echo "Employee's record deleted successfully. \n";
                 } else {
                     echo "Error deleting record: " . mysqli_connect_error();;
                 }
+
+                if (mysqli_query($conn, $sql2)) {
+                    echo "Record of employee's department deleted successfully. \n";
+                } else {
+                    echo "Error deleting record: " . mysqli_connect_error();;
+                }
+
+                if (mysqli_query($conn, $sql3)) {
+                    echo "Record of employee's title deleted successfully. \n";
+                } else {
+                    echo "Error deleting record: " . mysqli_connect_error();;
+                }
+
+                if (mysqli_query($conn, $sql4)) {
+                    echo "Record of employee's salaries deleted successfully. \n";
+                } else {
+                    echo "Error deleting record: " . mysqli_connect_error();;
+                }
+                
             }
 
             // Process SAVE request - extract data and update the database
@@ -162,7 +184,9 @@ if (!$conn) {
                     // he still in the same department, no department change
                 } else {
                     // 1. terminate the current department to_date = today);
-                    $sql = "UPDATE dept_emp SET to_date = NOW() WHERE emp_no = '$emp_no'AND dep_no = '$dept_no'AND to_date = '9999-01-01'";
+                    $sql = "UPDATE dept_emp SET to_date =  NOW() WHERE emp_no = '$emp_no'AND dept_no = '$dept_no'";
+                    $result7 = mysqli_query($conn, $sql);
+                    $row7 = mysqli_fetch_assoc($result7);
                     if ($conn->query($sql) === TRUE) {
                         echo "Success<br/>$sql<br/>";
                     } else {
@@ -210,8 +234,8 @@ if (!$conn) {
                 // if YES, 
                 // Update record (set from_date to today and to_date = '9999-01-01')
                 $sql = "SELECT * FROM salaries WHERE emp_no = '$emp_no' AND salary = '$salary' ORDER BY emp_no ASC";
-                $result3 = mysqli_query($conn, $sql);
-                $row5 = mysqli_fetch_assoc($result3);
+                $result5 = mysqli_query($conn, $sql);
+                $row5 = mysqli_fetch_assoc($result5);
                 $from_date = $row5['to_date'];
 
                 if (mysqli_num_rows($result5) > 0) {
@@ -239,7 +263,7 @@ if (!$conn) {
                 <h1 style="text-indent: 50px;">Employee Management</h1><br />
                 <?php
 
-                $sql = "SELECT * from (((employees e left join (select emp_no as de_emp_no, dept_no as de_dept_no, from_date as de_from_date, to_date as de_to_date from dept_emp) de on e.emp_no = de.de_emp_no)left join departments d on de.de_dept_no = d.dept_no) left join (select emp_no as t_emp_no, title, from_date as t_from_date, to_date as t_to_date from titles) t on e.emp_no = t.t_emp_no)left join (select s.emp_no, salary, from_date, to_date from salaries s join (select emp_no, MAX(to_date) as s_to_date from salaries group by emp_no) sa on s.emp_no = sa.emp_no where s.to_date = sa.s_to_date) sal on e.emp_no = sal.emp_no WHERE de_to_date = '9999-01-01' AND t_to_date = '9999-01-01' limit 10;";
+                $sql = "SELECT * from (((employees e left join (select emp_no as de_emp_no, dept_no as de_dept_no, from_date as de_from_date, to_date as de_to_date from dept_emp) de on e.emp_no = de.de_emp_no)left join departments d on de.de_dept_no = d.dept_no) left join (select emp_no as t_emp_no, title, from_date as t_from_date, to_date as t_to_date from titles) t on e.emp_no = t.t_emp_no)left join (select s.emp_no, salary, from_date, to_date from salaries s join (select emp_no, MAX(to_date) as s_to_date from salaries group by emp_no) sa on s.emp_no = sa.emp_no where s.to_date = sa.s_to_date) sal on e.emp_no = sal.emp_no WHERE de_to_date = '9999-01-01' AND t_to_date = '9999-01-01' limit 10";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -255,12 +279,12 @@ if (!$conn) {
                             <th>Gender</th>
                             <th>Title</th>
                             <th>Salary</th>
-                            <!-- <th>de_from Date</th>
+                            <th>de_from Date</th>
                             <th>de_to Date</th>
                             <th>t_from Date</th>
                             <th>t_to Date</th>
                             <th>s_from Date</th>
-                            <th>s_to Date</th> -->
+                            <th>s_to Date</th>
                             <th>Delete</th>
                             <th>Update</th>
                         </thead>
@@ -269,6 +293,7 @@ if (!$conn) {
                             // output data of each row
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $emp_no = $row['emp_no'];
+                                $dept_name = $row['dept_name'];
                                 // echo "<form action=\"{$_SERVER['PHP_SELF']}\" method=\"POST\" id=\"form{$emp_no}\">";
                                 // echo "<input type='hidden' name='cmd' value='del' />";
                                 // echo "<input type='hidden' name='emp_no' value='{$emp_no}'/>";
@@ -286,12 +311,12 @@ if (!$conn) {
                                     <td><?php echo $row['gender']; ?></td>
                                     <td><?php echo $row['title']; ?></td>
                                     <td><?php echo $row['salary'] ?></td>
-                                    <!-- <td><?php echo $row['de_from_date'] ?></td>
+                                    <td><?php echo $row['de_from_date'] ?></td>
                                     <td><?php echo $row['de_to_date'] ?></td>
                                     <td><?php echo $row['t_from_date'] ?></td>
                                     <td><?php echo $row['t_to_date'] ?></td>
                                     <td><?php echo $row['from_date'] ?></td>
-                                    <td><?php echo $row['to_date'] ?></td> -->
+                                    <td><?php echo $row['to_date'] ?></td>
                                     <td>
                                         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="form<?php echo $row['emp_no']; ?>">
                                             <input type="hidden" name="emp_no" value="<?php echo $row['emp_no']; ?>" />
@@ -300,7 +325,7 @@ if (!$conn) {
                                         <!-- <button type="submit" form="form<?php echo $row['emp_no']; ?>">
                             <img src="img/del_icon.jpg" width="20">
                         </button> -->
-                                        <button onClick='confirmDelete("form<?php echo $row['emp_no']; ?>", "<?php echo $row['first_name']; ?>")'>
+                                        <button onClick='confirmDelete("form<?php echo $row['emp_no']; ?>", "<?php echo $row['emp_no']; ?>")'>
                                             <img src="/images/delete-icon-blue.png" width="20">
                                         </button>
                                     </td>
@@ -342,7 +367,8 @@ if (!$conn) {
                         $row3 = mysqli_fetch_assoc($result3);
 
                         // Get the current salary of this employees
-                        $sql = "SELECT s.emp_no, salary, from_date, to_date FROM salaries s LEFT JOIN (SELECT emp_no, MAX(from_date) AS max_from_date, MAX(to_date) AS max_to_date FROM salaries GROUP BY emp_no) sa ON s.emp_no = sa.emp_no WHERE s.from_date = sa.max_from_date;";
+                        $sql = "SELECT * FROM salaries WHERE emp_no = '$emp_no' AND to_date = (SELECT MAX(to_date) FROM salaries WHERE emp_no = '$emp_no')ORDER BY emp_no ASC";
+                        // $sql = "SELECT emp_no, salary, from_date, to_date FROM salaries s LEFT JOIN (SELECT emp_no, MAX(from_date) AS max_from_date, MAX(to_date) AS max_to_date FROM salaries GROUP BY emp_no) sa ON s.emp_no = sa.emp_no WHERE s.emp_no = $emp_no AND s.from_date = sa.max_from_date;";
                         $result4 = mysqli_query($conn, $sql);
                         $row4 = mysqli_fetch_assoc($result4);
                     }
