@@ -40,7 +40,7 @@ if (!$conn) {
 
         thead {
             background-color: rgba(255, 99, 71, 0.5);
-            font-size: large;
+            font-size: medium;
         }
 
         td {
@@ -279,12 +279,12 @@ if (!$conn) {
                             <th>Gender</th>
                             <th>Title</th>
                             <th>Salary</th>
-                            <th>de_from Date</th>
+                            <!-- <th>de_from Date</th>
                             <th>de_to Date</th>
                             <th>t_from Date</th>
                             <th>t_to Date</th>
                             <th>s_from Date</th>
-                            <th>s_to Date</th>
+                            <th>s_to Date</th> -->
                             <th>Delete</th>
                             <th>Update</th>
                         </thead>
@@ -311,12 +311,12 @@ if (!$conn) {
                                     <td><?php echo $row['gender']; ?></td>
                                     <td><?php echo $row['title']; ?></td>
                                     <td><?php echo $row['salary'] ?></td>
-                                    <td><?php echo $row['de_from_date'] ?></td>
+                                    <!-- <td><?php echo $row['de_from_date'] ?></td>
                                     <td><?php echo $row['de_to_date'] ?></td>
                                     <td><?php echo $row['t_from_date'] ?></td>
                                     <td><?php echo $row['t_to_date'] ?></td>
                                     <td><?php echo $row['from_date'] ?></td>
-                                    <td><?php echo $row['to_date'] ?></td>
+                                    <td><?php echo $row['to_date'] ?></td> -->
                                     <td>
                                         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="form<?php echo $row['emp_no']; ?>">
                                             <input type="hidden" name="emp_no" value="<?php echo $row['emp_no']; ?>" />
