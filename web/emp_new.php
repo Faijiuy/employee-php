@@ -66,6 +66,12 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
             font-size: medium;
         }
 
+        h1 {
+            background-color: rgba(255, 99, 71, 0.5);
+            width: 80%;
+            text-indent: 50px;
+        }
+
         #leftAlign {
             font-size: medium;
             text-align: left;
@@ -98,7 +104,7 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
     </style>
 </head>
 
-<body style="background-color: #fddce0;">
+<body>
 
     <div class="container-fluid">
         <nav class="navbar navbar-inverse">
@@ -124,7 +130,7 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
             </div>
 
             <div class="col-sm-9">
-                <h1 style="background-color: rgba(255, 99, 71, 0.5);">Insert New Employee</h1><br />
+                <h1>Insert New Employee</h1><br />
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                     <input type="hidden" name="cmd" value="add" />
                     <table>
