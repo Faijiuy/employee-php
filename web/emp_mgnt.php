@@ -47,7 +47,7 @@ if (!$conn) {
         td {
             text-align: left;
             font-size: medium;
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255);
         }
 
         #leftAlign {
