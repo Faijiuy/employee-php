@@ -36,6 +36,7 @@ if (!$conn) {
 
         nav {
             font-size: medium;
+            background: #fc5369;
         }
 
         thead {
@@ -46,15 +47,16 @@ if (!$conn) {
         td {
             text-align: left;
             font-size: medium;
+            background: #f1f1f1;
         }
 
         #leftAlign {
-            font-size: large;
+            font-size: medium;
             text-align: left;
         }
 
         .btn-primary {
-            font-size: large;
+            font-size: medium;
         }
 
         /* Set black background color, white text and some padding */

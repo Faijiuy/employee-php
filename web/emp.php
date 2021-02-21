@@ -32,6 +32,7 @@ if (!$conn) {
 
     nav {
       font-size: medium;
+      background: #fc5369;
     }
 
     table {
@@ -45,7 +46,6 @@ if (!$conn) {
     td {
       text-align: center;
       font-size: medium;
-      background-color: #f1f1f1;
     }
 
     #leftAlign {

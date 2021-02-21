@@ -45,11 +45,12 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
         .sidenav {
             background-color: #f1f1f1;
             height: 130%;
-            font-size: large;
+            font-size: medium;
         }
 
         nav {
-            font-size: large;
+            font-size: medium;
+            background: #fc5369;
         }
 
         table {
@@ -62,16 +63,16 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
 
         td {
             text-align: center;
-            font-size: large;
+            font-size: medium;
         }
 
         #leftAlign {
-            font-size: large;
+            font-size: medium;
             text-align: left;
         }
 
         .btn-primary {
-            font-size: large;
+            font-size: medium;
         }
 
         /* Set black background color, white text and some padding */
@@ -87,7 +88,7 @@ if (isset($_POST['cmd']) && $_POST['cmd'] == 'add') {
             .sidenav {
                 height: auto;
                 padding: 15px;
-                font-size: large;
+                font-size: medium;
             }
 
             .row.content {
