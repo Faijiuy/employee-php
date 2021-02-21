@@ -26,7 +26,7 @@ if (!$conn) {
         .sidenav {
             background-color: #f1f1f1;
             height: 150%;
-            font-size: large;
+            font-size: medium;
         }
 
         h1,
@@ -35,7 +35,7 @@ if (!$conn) {
         }
 
         nav {
-            font-size: large;
+            font-size: medium;
         }
 
         thead {
@@ -45,7 +45,7 @@ if (!$conn) {
 
         td {
             text-align: left;
-            font-size: large;
+            font-size: medium;
         }
 
         #leftAlign {
@@ -70,7 +70,7 @@ if (!$conn) {
             .sidenav {
                 height: auto;
                 padding: 15px;
-                font-size: large;
+                font-size: medium;
             }
 
             .row.content {
