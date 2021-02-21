@@ -30,7 +30,7 @@ if (!$conn) {
         }
 
         h1,
-        h3 {
+        h4 {
             text-decoration: underline
         }
 
@@ -97,7 +97,7 @@ if (!$conn) {
         </nav>
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <h3>Employee Sample App</h3>
+                <h4>Employee Sample App</h4>
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="/emp.php">View All Employees(emp.php)</a></li>
                     <li><a href="/emp_new.php">Insert New Employee(emp_new.php)</a></li>
